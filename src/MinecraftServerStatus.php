@@ -47,6 +47,16 @@ class MinecraftServerStatus {
         
         $descriptionRaw = isset($data->description) ? $data->description : false;
         $description = $descriptionRaw;
+
+        /*
+        if(isset($data->players->online)){
+            $playersOnline = '';
+            foreach($data->players->sample as $player){
+                $playersOnline .= $player->name.', ';
+            }
+            $playersOnline = rtrim($playersOnline, ', ');
+        }
+        */
         
         // colorize the description if it is supported
         if (gettype($descriptionRaw) == 'object' && isset($descriptionRaw->extra)) {
@@ -59,12 +69,14 @@ class MinecraftServerStatus {
         }
         
         return array(
+                'data' => $data,
                 'hostname' => $host,
                 'port' => $port,
                 'ping' => $ping,
                 'version' => isset($data->version->name) ? $data->version->name : false,
                 'protocol' => isset($data->version->protocol) ? $data->version->protocol : false,
                 'players' => isset($data->players->online) ? $data->players->online : false,
+                'players_online' => isset($playersOnline) ? $playersOnline : false,
                 'max_players' => isset($data->players->max) ? $data->players->max : false,
                 'description' => $description,
                 'description_raw' => $descriptionRaw,
