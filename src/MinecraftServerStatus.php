@@ -48,7 +48,6 @@ class MinecraftServerStatus {
         $descriptionRaw = isset($data->description) ? $data->description : false;
         $description = $descriptionRaw;
 
-        /*
         if(isset($data->players->online)){
             $playersOnline = '';
             foreach($data->players->sample as $player){
@@ -56,7 +55,6 @@ class MinecraftServerStatus {
             }
             $playersOnline = rtrim($playersOnline, ', ');
         }
-        */
         
         // colorize the description if it is supported
         if (gettype($descriptionRaw) == 'object' && isset($descriptionRaw->extra)) {
