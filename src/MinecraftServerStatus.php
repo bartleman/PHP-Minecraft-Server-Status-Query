@@ -48,7 +48,7 @@ class MinecraftServerStatus {
         $descriptionRaw = isset($data->description) ? $data->description : false;
         $description = $descriptionRaw;
 
-        if(isset($data->players->online)){
+        if(isset($data->players->sample)){
             $playersOnline = '';
             foreach($data->players->sample as $player){
                 $playersOnline .= $player->name.', ';

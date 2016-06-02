@@ -11,6 +11,6 @@ if (! $response) {
     echo "<img width=\"64\" height=\"64\" src=\"" . $response['favicon'] . "\" /> <br>
 		The Server " . $response['hostname'] . " is running on " . $response['version'] . " and is online,
 		currently are " . $response['players'] . " players online
-		of a maximum of " . $response['max_players'] . ". The motd of the server is '" . $response['description'] . "'.
+		of a maximum of " . $response['max_players'] . ". The motd of the server is '" . $response['description']->text . "'.
 		The server has a ping of " . $response['ping'] . " milliseconds.";
 }
